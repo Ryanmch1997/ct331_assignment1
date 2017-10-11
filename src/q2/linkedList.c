@@ -29,7 +29,45 @@ listElement* createEl(char* data, size_t size){
   e->next = NULL;
   return e;
 }
+int length() {
+	printf("Size of list:%d",sizeof(listElement));
+}
+void push(char* data, size_t size) {
+	char8 data = (char*) malloc(sizeof(char*));
+	data->value = value;
+	data->next = listElement;
+	return data;
+}
+listElement* pop(listElement** list) {	MY_STACK node = *list;
 
+	if (list != NULL) list = (*head)->next;
+
+	return node;}void enqueue(listElement** list, char* data, size_t size) {
+	listElement** new_element, e;
+
+	new_element = malloc(sizeof(list));
+	new_element->data = data;
+	new_element->next = NULL;
+
+	if (!list)
+		return new_element;
+
+	e = list;
+	while (e->next)
+		e = e->next;
+	e->next = new_element;
+
+	return list;
+
+}
+listElement* dequeue(listElement* list) {
+	ListElement* list = ((ListElement*);
+	Node* temp = list->head->next;
+	while (temp->next) temp = temp->next;
+	free(temp->next);
+	temp->next = 0;
+	list->size--;
+}
 //Prints out each element in the list
 void traverse(listElement* start){
   listElement* current = start;
@@ -48,7 +86,6 @@ listElement* insertAfter(listElement* el, char* data, size_t size){
   el->next = newEl;
   return newEl;
 }
-
 
 //Delete the element after the given el
 void deleteAfter(listElement* after){
